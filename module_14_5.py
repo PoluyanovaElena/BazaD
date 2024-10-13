@@ -4,11 +4,11 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.dispatcher import FSMContext
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-import asyncio
 from crud_functions import *
-from admin import *
 
-api = ""
+initiate_db()
+
+api = "7833663712:AAFr6YylIeIL8j5yh44CRcnnrA7rXjkW8HU"
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 

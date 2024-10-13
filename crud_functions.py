@@ -34,7 +34,6 @@ def add_user(username, email, age):
 
 def get_all_products():
     cursor.execute("SELECT * FROM Products")
-    connection.commit()
     return cursor.fetchall()
 
 

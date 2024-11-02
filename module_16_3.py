@@ -29,5 +29,12 @@ async def update_user(user_id: Annotated[int, Path(ge=1, le=100, description='En
 
 @app.delete("/user/{user_id}")
 async def delete_user(user_id: Annotated[int, Path(ge=1, le=100, description='Enter User ID', example=2)]):
+    user_id = str(user_id)
     del users[user_id]
     return f"User {user_id} has been deleted"
+
+
+
+
+
+

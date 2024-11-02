@@ -31,23 +31,15 @@ async def update_user(user_id: int, username: str, age: int):
             user = users[user_id-1]
             user.username = username
             user.age = age
-            return user
+            return f"The user {user_id} has been updated"
     raise HTTPException(status_code=404, detail="User was not found")
-
-# @app.put("/user/{user_id}/{username}/{age}")
-# async def update_user(user_id: int, username: str, age: int):
-#     try:
-#         users[user_id] = f"Имя: {username}, возраст: {age}"
-#         return f"The user {user_id} has been updated"
-#     except IndexError:
-#         raise HTTPException(status_code=404, detail="User was not found")
 
 
 @app.delete("/user/{user_id}")
 async def delete_user(user_id: int):
-    try:
-        del users[user_id]
-        return f"User {user_id} has been deleted"
-    except IndexError:
-        raise HTTPException(status_code=404, detail="User was not found")
+    for user in users:
+        if user.id == user_id:
+            del users[user_id-1]
+            return f"User {user_id} has been deleted"
+    raise HTTPException(status_code=404, detail="User was not found")
 

@@ -21,7 +21,7 @@ async def post_user(username: str, age: int):
     user_id = len(users) + 1
     new_user = User(id=user_id, username=username, age=age)
     users.append(new_user)
-    return {f"User {user_id} is registered"}
+    return new_user
 
 
 @app.put("/user/{user_id}/{username}/{age}")

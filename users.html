@@ -20,7 +20,7 @@
                     <ul class="list-group list-group-flush">
                         <!-- Напишите свой код здесь (перебор пользователей) -->
                         {% for user in users %}
-                        <li class="List-group-item"> {{user.id}} <a href="/user/{{user.id-1}}"> {{user}} </a> </li>
+                        <li class="List-group-item"> {{user.id}} <a href="/user/{{user.id}}"> {{user}} </a> </li>
                         {% endfor %}
                     </ul>
                 </div>

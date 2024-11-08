@@ -1,4 +1,4 @@
-from fastapi import FastAPI, status, Body, HTTPException, Request
+from fastapi import FastAPI, status, Body, HTTPException, Request, Form
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from typing import List
@@ -23,7 +23,7 @@ def get_all_users(request: Request) -> HTMLResponse:
 @app.get(path="/user/{user_id}")
 async def get_users(request: Request, user_id: int) -> HTMLResponse:
     try:
-        return templates.TemplateResponse("users.html", {"request": request, "user": users[user_id]})
+        return templates.TemplateResponse("users.html", {"request": request, "user": users[user_id-1]})
     except IndexError:
         raise HTTPException(status_code=404, detail="User not found")
 
